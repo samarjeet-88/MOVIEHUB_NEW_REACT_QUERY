@@ -1,15 +1,15 @@
 import React, { useRef } from "react";
-import { getTrendingMovies } from "../../api/TrendingMovie";
+import { getSpecificTrendingTvShow } from "../../api/SpecificTvShow";
 import { useQuery } from "@tanstack/react-query";
 import MovieCard from "../Card/MovieCard";
 import { CiCircleChevLeft } from "react-icons/ci";
 import { CiCircleChevRight } from "react-icons/ci";
 
-function TrendingSection() {
+function SpecificTrendingTvShow() {
   const slideIconStyle = "text-white text-4xl hover:text-gray-400 transition";
   const trendingMovieQuery = useQuery({
-    queryKey: ["trendingmovie"],
-    queryFn: getTrendingMovies,
+    queryKey: ["specifictrendingtv"],
+    queryFn: getSpecificTrendingTvShow,
     staleTime: 1000 * 60 * 60,
   });
   //   console.log(trendingMovieQuery.data)
@@ -32,13 +32,13 @@ function TrendingSection() {
         {trendingMovieQuery.isLoading ? (
           <div>
             <h1 className="text-2xl text-red-500">
-              TRENDING MOVIES LOADING...
+              TRENDING TV SHOW LOADING...
             </h1>
           </div>
         ) : (
           <div className="w-full relative">
             <h1 className="font-monoTrust text-white text-2xl mb-3 mt-3">
-              TRENDING MOVIES / TV SHOWS
+              TRENDING TV SHOW
             </h1>
             <button
               className="hover:cursor-pointer absolute right-0 top-0 -translate-x-10 "
@@ -69,4 +69,4 @@ function TrendingSection() {
   );
 }
 
-export default TrendingSection;
+export default SpecificTrendingTvShow;

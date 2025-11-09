@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   const style =
@@ -10,14 +11,20 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="w-[90%] pt-8 pb-4 m-auto flex gap-10 justify-between items-center">
+    <div className="relative w-[90%] pt-8 pb-4 m-auto md:flex gap-10 justify-between items-center">
       <h1 className="text-white font-momoSignature text-3xl tracking-wide">
         MOVIE<span className="text-red-500">HUB</span>
       </h1>
       <ul className="hidden md:flex gap-8 font-monoTrust text-lg text-gray-400">
-        <li className={style}>HOME</li>
-        <li className={style}>TV SHOWS</li>
-        <li className={style}>MOVIES</li>
+        <NavLink to="/" className="active:text-red-500 active:underline">
+          <li className={style}>HOME</li>
+        </NavLink>
+        <NavLink to="/movie">
+          <li className={style}>MOVIES</li>
+        </NavLink>
+        <NavLink to="/tvshow">
+          <li className={style}>TV SHOW</li>
+        </NavLink>
         <li className={style}>FAVOURITES</li>
       </ul>
       <div className="hidden md:block w-[30%] relative">
@@ -29,19 +36,24 @@ function Navbar() {
         />
       </div>
       <div
-        className="md:hidden text-3xl text-gray-300 cursor-pointer"
+        className="absolute right-0 top-1/2 -translate-y-1/2 md:hidden text-3xl text-gray-300 cursor-pointer"
         onClick={(e) => setMenuOpen(!menuOpen)}
       >
         {menuOpen ? <IoClose /> : <GiHamburgerMenu />}
       </div>
       {menuOpen && (
-        <div className="absolute top-20 left-0 w-full bg-[#111] border-t border-gray-800 md:hidden z-50">
+        <div className="abs w-full bg-[#111] border-t border-gray-800 md:hidden z-50 ">
           <ul className="flex flex-col items-center gap-6 py-6 font-monoTrust text-lg text-gray-400">
-            <li className={style}>HOME</li>
-            <li className={style}>TV SHOWS</li>
-            <li className={style}>MOVIES</li>
+            <NavLink to="/">
+              <li className={style}>HOME</li>
+            </NavLink>
+            <NavLink to="/movie">
+              <li className={style}>MOVIES</li>
+            </NavLink>
+            <NavLink to="/tvshow">
+              <li className={style}>TV SHOW</li>
+            </NavLink>
             <li className={style}>FAVOURITES</li>
-            <li className={style}></li>
             <div className="w-[80%] relative mt-2">
               <CiSearch className="absolute text-2xl right-4 top-1/2 -translate-y-1/2 text-gray-300" />
               <input
