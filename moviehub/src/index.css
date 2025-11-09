@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap');
+@import "tailwindcss";
+
+@theme{
+  --font-momoSignature:"Momo Signature", cursive, sans-serif;
+  --font-monoTrust:"Momo Trust Display", sans-serif;
+}
+
+@layer utilities{
+  .scrollbar-hide{
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar{
+    display: none;
+  }
+}
