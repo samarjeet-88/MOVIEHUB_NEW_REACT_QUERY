@@ -7,7 +7,7 @@ function MovieCard({ movie }) {
     const pStyle="text-white font-bold"
   return (
     <>
-      <div className="flex flex-col gap-2 w-full">
+      <div className="flex flex-col gap-2 w-full hover:scale-[110%] transition ease-in-out duration-300 cursor-pointer ">
         <img src={movie.poster_path?`https://image.tmdb.org/t/p/w500${movie.poster_path}` : fallBackPoster} alt={movie.title} className="w-full h-60"/>
         <div>
             <div className="flex mb-3 gap-3">
