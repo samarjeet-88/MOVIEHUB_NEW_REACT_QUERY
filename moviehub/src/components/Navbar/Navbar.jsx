@@ -56,7 +56,15 @@ function Navbar() {
         >
           TV SHOW
         </NavLink>
-        <li className={style}>FAVOURITES</li>
+        <NavLink
+          to="/favourite"
+          end
+          className={({ isActive }) =>
+            `${style} ${isActive ? "text-red-500 underline" : "text-gray-400"}`
+          }
+        >
+          FAVOURITES
+        </NavLink>
       </ul>
       <div className="hidden md:block w-[30%] relative">
         {query.length === 0 ? (
@@ -163,7 +171,17 @@ function Navbar() {
             >
               TV SHOW
             </NavLink>
-            <li className={style}>FAVOURITES</li>
+            <NavLink
+              to="/favourite"
+              end
+              className={({ isActive }) =>
+                `${style} ${
+                  isActive ? "text-red-500 underline" : "text-gray-400"
+                }`
+              }
+            >
+              FAVOURITES
+            </NavLink>
           </ul>
         </div>
       )}

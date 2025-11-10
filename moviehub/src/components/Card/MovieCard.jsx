@@ -20,7 +20,7 @@ function MovieCard({ movie,mediatype }) {
           />
           <div>
             <div className="flex mb-3 gap-3">
-              <p className={pStyle}>&#11088; {movie.vote_average.toFixed(1)}</p>
+              <p className={pStyle}>&#11088; {movie.vote_average && movie.vote_average.toFixed(1)}</p>
               <p className={pStyle}>
                 {movie.release_date ? movie.release_date.split("-")[0] : "N/A"}
               </p>

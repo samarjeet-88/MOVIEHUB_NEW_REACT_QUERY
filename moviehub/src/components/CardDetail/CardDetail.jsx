@@ -3,9 +3,14 @@ import fallBackPoster from "../../assets/image_not_found.png";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { getCardDetail, getCreditsDetail } from "../../api/CardDetail";
+import { useFavouriteMovies } from "../../context/FavouriteMovieContext";
 
 function CardDetail() {
   const { id, type } = useParams();
+
+  const { isAlreadyPresent,addMovies,deleteMovies } = useFavouriteMovies();
+
+  const present = isAlreadyPresent(id);
 
   const {
     data: item,
@@ -94,9 +99,17 @@ function CardDetail() {
                 ))}
               </div>
             )}
-            <button className="mt-4 font-bold bg-green-600 px-6 py-3 rounded-lg hover:bg-green-800 transition-all hover:cursor-pointer">
-              ADD TO FAVOURITE
-            </button>
+            {present ? (
+              <button className="mt-4 font-bold bg-gray-600 px-6 py-3 rounded-lg hover:bg-gray-400 transition-all hover:cursor-pointer" onClick={()=>{
+                deleteMovies(id)
+              }}>
+                REMOVE FROM FAVOURITE
+              </button>
+            ) : (
+              <button className="mt-4 font-bold bg-green-600 px-6 py-3 rounded-lg hover:bg-green-800 transition-all hover:cursor-pointer" onClick={()=>addMovies(id)}>
+                ADD TO FAVOURITE
+              </button>
+            )}
           </div>
         </div>
       </div>

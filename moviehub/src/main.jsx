@@ -1,32 +1,42 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import {QueryClientProvider,QueryClient} from "@tanstack/react-query"
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
-import Layout from './Layout.jsx'
-import Home from './components/Home/Home.jsx'
-import MovieSection from './components/Movie/MovieSection.jsx'
-import TvShowSection from './components/TvShow/TvShowSection.jsx'
-import CardDetail from './components/CardDetail/CardDetail.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import Layout from "./Layout.jsx";
+import Home from "./components/Home/Home.jsx";
+import MovieSection from "./components/Movie/MovieSection.jsx";
+import TvShowSection from "./components/TvShow/TvShowSection.jsx";
+import CardDetail from "./components/CardDetail/CardDetail.jsx";
+import { FavouriteMovieProvider } from "./context/FavouriteMovieContext.jsx";
+import FavouriteSection from "./components/Favourite/FavouriteSection.jsx";
 
-const queryClient=new QueryClient()
+const queryClient = new QueryClient();
 
-const router=createBrowserRouter(
+const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<Layout/>}>
-      <Route path='' element={<Home/>}/>
-      <Route path='/movie' element={<MovieSection/>}/>
-      <Route path='/tvshow' element={<TvShowSection/>}/>
-      <Route path='/item/:type/:id' element={<CardDetail/>}/>
+    <Route path="/" element={<Layout />}>
+      <Route path="" element={<Home />} />
+      <Route path="/movie" element={<MovieSection />} />
+      <Route path="/tvshow" element={<TvShowSection />} />
+      <Route path="/item/:type/:id" element={<CardDetail />} />
+      <Route path="/favourite" element={<FavouriteSection/>} />
     </Route>
   )
-)
+);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router}/>
+      <FavouriteMovieProvider>
+        <RouterProvider router={router} />
+      </FavouriteMovieProvider>
     </QueryClientProvider>
-  </StrictMode>,
-)
+  </StrictMode>
+);
