@@ -3,7 +3,7 @@ import SpecificTrendingTvShow from './SpecificTrendingTvShow'
 
 function TvShowSection() {
   return (
-    <div className="w-full">
+    <div className="w-[90%] m-auto">
         <SpecificTrendingTvShow/>
       </div>
   )

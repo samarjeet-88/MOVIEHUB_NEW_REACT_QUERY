@@ -56,7 +56,7 @@ function SpecificUpcomingMovie() {
             >
               {trendingMovieQuery.data?.results?.map((movie, idx) => (
                 <li key={idx} className="snap-start shrink-0 w-40 ">
-                  <MovieCard movie={movie} />
+                  <MovieCard movie={movie} mediatype="movie"/>
                 </li>
               ))}
             </ul>

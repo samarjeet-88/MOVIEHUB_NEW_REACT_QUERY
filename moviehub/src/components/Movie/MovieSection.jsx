@@ -4,7 +4,7 @@ import SpecificUpcomingMovie from './SpecificUpcomingMovie'
 
 function MovieSection() {
   return (
-    <div className="w-full">
+    <div className="w-[90%] m-auto ">
         <SpecificTrendingMovie/>
         <SpecificUpcomingMovie/>
       </div>

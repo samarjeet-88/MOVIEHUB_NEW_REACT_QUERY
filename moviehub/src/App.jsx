@@ -1,3 +1,4 @@
+import CardDetail from "./components/CardDetail/CardDetail";
 import Home from "./components/Home/Home";
 import TrendingSection from "./components/Home/TrendingSection";
 import Navbar from "./components/Navbar/Navbar";

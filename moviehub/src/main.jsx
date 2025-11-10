@@ -8,6 +8,7 @@ import Layout from './Layout.jsx'
 import Home from './components/Home/Home.jsx'
 import MovieSection from './components/Movie/MovieSection.jsx'
 import TvShowSection from './components/TvShow/TvShowSection.jsx'
+import CardDetail from './components/CardDetail/CardDetail.jsx'
 
 const queryClient=new QueryClient()
 
@@ -17,6 +18,7 @@ const router=createBrowserRouter(
       <Route path='' element={<Home/>}/>
       <Route path='/movie' element={<MovieSection/>}/>
       <Route path='/tvshow' element={<TvShowSection/>}/>
+      <Route path='/item/:type/:id' element={<CardDetail/>}/>
     </Route>
   )
 )

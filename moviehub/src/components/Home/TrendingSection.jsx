@@ -12,7 +12,7 @@ function TrendingSection() {
     queryFn: getTrendingMovies,
     staleTime: 1000 * 60 * 60,
   });
-  //   console.log(trendingMovieQuery.data)
+  // console.log(trendingMovieQuery.data)
   const listRef = useRef(null);
   const scrollLeft = () => {
     listRef.current.scrollBy({
@@ -58,7 +58,7 @@ function TrendingSection() {
             >
               {trendingMovieQuery.data?.results?.map((movie, idx) => (
                 <li key={idx} className="snap-start shrink-0 w-40 ">
-                  <MovieCard movie={movie} />
+                  <MovieCard movie={movie} mediatype="movie" />
                 </li>
               ))}
             </ul>
